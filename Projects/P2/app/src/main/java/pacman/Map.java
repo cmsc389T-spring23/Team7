@@ -1,6 +1,7 @@
 package pacman;
 import java.util.HashMap;
 import java.util.HashSet;
+
 import javax.swing.JComponent;
 
 public class Map {
@@ -60,7 +61,8 @@ public class Map {
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    return null;
+   		return field.get(loc);
+
   }
 
   public boolean attack(String Name) {
