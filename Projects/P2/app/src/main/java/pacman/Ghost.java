@@ -12,7 +12,14 @@ public class Ghost {
     this.myName = name;
     this.myMap = map;
   }
-
+  /*Notes from the README
+   * 
+   * Type: () -> ArrayList<Location>
+   * Description: This function returns an arraylist of possible locations that a ghost can move to from its 
+   * current location. 
+   * 
+   * Ghosts cannot move through walls, but they can move through other ghosts or PacMan.
+   */
   public ArrayList<Location> get_valid_moves() {
     ArrayList<Location> listOfValidMoves= new ArrayList<Location>();
     
