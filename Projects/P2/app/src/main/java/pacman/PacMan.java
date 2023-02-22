@@ -51,7 +51,6 @@ public class PacMan {
     //Note:I'm assuming that we start counting with 0 instead of 1 for the coordinates
 
     //Checking East of current position
-    ;
     if(currentPositionX < 24 && !this.myMap.getLoc(new Location (currentPositionX+1,currentPositionY)).contains(Map.Type.WALL)){
       listOfValidMoves.add(new Location(currentPositionX+1,currentPositionY));
     }
