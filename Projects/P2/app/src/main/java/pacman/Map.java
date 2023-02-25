@@ -63,10 +63,13 @@ public class Map {
     HashSet<Type> types = field.get(loc);
     if (types == null) {
         return emptySet;
+    } else if (types.contains(Type.WALL)) {
+        return wallSet;
     } else {
         return types;
     }
 }
+
 
 
   public boolean attack(String Name) {
