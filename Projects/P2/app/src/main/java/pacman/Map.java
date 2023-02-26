@@ -2,6 +2,7 @@ package pacman;
 import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
+import javax.tools.DocumentationTool.Location;
 
 public class Map {
 
@@ -71,6 +72,17 @@ public class Map {
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
     // the id for a cookie at (10, 1) is tok_x10_y1
+    Location pacLoc = locations.get(name);
+    HashSet<Type> pacField = field.get(pacLoc);
+
+    if (pacField.contains(Type.COOKIE)) {
+      String cookie_id = String.format("tok_x%d_y%d", pacLoc.x, pacLoc.y);
+      pacField.remove(Type.COOKIE);
+      locations.remove(cookie_id);
+      cookies++;
+      return components.remove(cookie_id);
+    }
+
     return null;
   }
 }
