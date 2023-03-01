@@ -12,43 +12,9 @@ public class Ghost {
     this.myName = name;
     this.myMap = map;
   }
-  /*Notes from the README
-   * 
-   * Type: () -> ArrayList<Location>
-   * Description: This function returns an arraylist of possible locations that a ghost can move to from its 
-   * current location. 
-   * 
-   * Ghosts cannot move through walls, but they can move through other ghosts or PacMan.
-   */
+
   public ArrayList<Location> get_valid_moves() {
-    ArrayList<Location> listOfValidMoves= new ArrayList<Location>();
-    
-    int currentPositionX=this.myLoc.x;
-    int currentPositionY=this.myLoc.y;
-
-    //Note:I'm assuming that we start counting with 0 instead of 1 for the coordinates
-
-    //Checking East of current position
-    if(currentPositionX < 24 && !this.myMap.getLoc(new Location (currentPositionX+1,currentPositionY)).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(currentPositionX+1,currentPositionY));
-    }
-
-    //Checking West of current position
-    if(currentPositionX > 0 && !this.myMap.getLoc(new Location (currentPositionX-1,currentPositionY)).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(currentPositionX-1,currentPositionY));
-    }
-    
-    //Checking North of current position
-    if(currentPositionY < 23 && !this.myMap.getLoc(new Location (currentPositionX,currentPositionY+1)).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(currentPositionX,currentPositionY+1));
-    }
-    
-    //Checking South of current position
-    if(currentPositionY > 0 && !this.myMap.getLoc(new Location (currentPositionX,currentPositionY-1)).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(currentPositionX,currentPositionY-1));
-    }
-
-    return listOfValidMoves;
+    return null;
   }
 
   public boolean move() {
