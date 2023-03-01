@@ -1,11 +1,7 @@
 package pacman;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Locale;
-
 import javax.swing.JComponent;
-
-import com.sun.jdi.Location;
 
 public class PacMan {
   String myName;
@@ -45,29 +41,25 @@ public class PacMan {
   public ArrayList<Location> get_valid_moves() {
     ArrayList<Location> listOfValidMoves= new ArrayList<Location>();
     
-    int currentPositionX=this.myLoc.x;
-    int currentPositionY=this.myLoc.y;
-
-    //Note:I'm assuming that we start counting with 0 instead of 1 for the coordinates
-
     //Checking East of current position
-    if(currentPositionX < 24 && !this.myMap.getLoc(new Location (currentPositionX+1,currentPositionY)).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(currentPositionX+1,currentPositionY));
+	//
+    if(!(myMap.getLoc(new Location (myLoc.x+1,myLoc.y))).contains(Map.Type.WALL)){
+      listOfValidMoves.add(new Location(myLoc.x+1,myLoc.y));
     }
 
     //Checking West of current position
-    if(currentPositionX > 0 && !this.myMap.getLoc(new Location (currentPositionX-1,currentPositionY)).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(currentPositionX-1,currentPositionY));
+    if(!(myMap.getLoc(new Location (myLoc.x-1,myLoc.y))).contains(Map.Type.WALL)){
+      listOfValidMoves.add(new Location(myLoc.x-1,myLoc.y));
     }
     
     //Checking North of current position
-    if(currentPositionY < 23 && !this.myMap.getLoc(new Location (currentPositionX,currentPositionY+1)).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(currentPositionX,currentPositionY+1));
+    if(!(myMap.getLoc(new Location (myLoc.x,myLoc.y+1))).contains(Map.Type.WALL)){
+      listOfValidMoves.add(new Location(myLoc.x,myLoc.y+1));
     }
     
     //Checking South of current position
-    if(currentPositionY > 0 && !this.myMap.getLoc(new Location (currentPositionX,currentPositionY-1)).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(currentPositionX,currentPositionY-1));
+    if(!(myMap.getLoc(new Location (myLoc.x,myLoc.y-1))).contains(Map.Type.WALL)){
+      listOfValidMoves.add(new Location(myLoc.x,myLoc.y-1));
     }
 
     return listOfValidMoves;
