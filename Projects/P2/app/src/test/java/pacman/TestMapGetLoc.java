@@ -6,7 +6,7 @@ import java.awt.Color;
 public class TestMapGetLoc extends TestCase {
 
   public void testMapGetLoc() throws FileNotFoundException {
-    NoFrame frame= null;
+    NoFrame frame = null;
     try {
         frame = new NoFrame();
     } catch (FileNotFoundException e) {
