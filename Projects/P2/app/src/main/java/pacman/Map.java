@@ -1,6 +1,7 @@
 package pacman;
 import java.util.HashMap;
 import java.util.HashSet;
+
 import javax.swing.JComponent;
 
 public class Map {
@@ -53,15 +54,23 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
-    // update locations, components, and field
+    // update geocations, components, and field
     // use the setLocation method for the component to move it to the new location
     return false;
   }
 
   public HashSet<Type> getLoc(Location loc) {
-    // wallSet and emptySet will help you write this method
-    return null;
-  }
+    HashSet<Type> types = field.get(loc);
+    if (types == null) {
+        return emptySet;
+    } else if (types.contains(Type.WALL)) {
+        return wallSet;
+    } else {
+        return types;
+    }
+}
+
+
 
   public boolean attack(String Name) {
     // update gameOver
