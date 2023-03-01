@@ -20,14 +20,14 @@ public class PacMan {
   }
 
   public boolean move() {
-    ArrayList<Location> moves = this.get_valid_moves();
+    ArrayList<Location> moves = get_valid_moves();
     if (moves.size() == 0) {
       return false;
     } else {
-      loc = new Location(moves.get(0).x, moves.get(0).y);
-      return myMap.move(myName, loc, Map.Type.PACMAN);
+      myLoc = new Location(moves.get(0).x, moves.get(0).y);
+      return myMap.move(myName, myLoc, Map.Type.PACMAN);
     }
-    return true;
+  
   }
 
   public boolean is_ghost_in_range() {
