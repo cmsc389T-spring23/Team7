@@ -74,12 +74,9 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
-    if(name==null || loc==null || type==null){
-      return false;
-    }
 
     //Case 1, going to a valid spot (empty)
-    if(getLoc(loc).contains(Type.EMPTY)){
+    if((getLoc(loc)).contains(Type.EMPTY)){
       //finding and updating old location first
       for(Entry<Location>entry: field.keySet()){
         if(field.get(entry)== Type.PACMAN){
@@ -94,7 +91,7 @@ public class Map {
       return true;
 
       //Case 2, going to a valid spot (ghost)
-    }else if(getLoc(loc).contains(Type.GHOST)){
+    }else if((getLoc(loc)).contains(Type.GHOST)){
       locations.put(name, loc);
       
       //checking if the ghost's attack failed, if so
@@ -106,7 +103,7 @@ public class Map {
       return true;
 
       //Case 3, going to a valid spot (cookie)
-    }else if(getLoc(loc).contains(Type.COOKIE)){
+    }else if((getLoc(loc)).contains(Type.COOKIE)){
       locations.put(name, loc);
       components.put(name,eatCookie(name));
       field.put(loc, Type.PACMAN);
