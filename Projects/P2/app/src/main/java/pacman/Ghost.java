@@ -22,7 +22,15 @@ public class Ghost {
   }
 
   public boolean is_pacman_in_range() {
-    return false;
+    		//check above, to the right, below, and to the left of myLoc for a ghost
+		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.PACMAN)
+		|| myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.PACMAN)
+		|| myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.PACMAN)
+		|| myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
+
+		return false;
   }
 
   public boolean attack() {
