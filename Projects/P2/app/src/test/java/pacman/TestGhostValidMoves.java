@@ -6,6 +6,12 @@ import java.awt.Color;
 public class TestGhostValidMoves extends TestCase {
 
   public void testGhostValidMoves() throws FileNotFoundException {
-    return;
+    NoFrame frame = new NoFrame();
+    Ghost ghost = frame.addGhost(new Location(9, 11), "name", Color.red);
+
+    ArrayList<Location> answer=ghost.get_valid_moves();
+
+    assertTrue(answer.contains(new Location(9,12)));
+    assertTrue(answer.contains(new Location(10,11)));
   }
 }
