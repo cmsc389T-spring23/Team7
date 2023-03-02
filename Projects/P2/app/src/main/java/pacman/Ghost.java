@@ -12,7 +12,6 @@ public class Ghost {
     this.myName = name;
     this.myMap = map;
   }
-
   //Checks the 4 cardinal directions of PacMan's current locations.
   //A valid move is anything as long as we don't encounter a wall.
   public ArrayList<Location> get_valid_moves() {
@@ -37,8 +36,6 @@ public class Ghost {
     if(!(myMap.getLoc(new Location (myLoc.x,myLoc.y-1))).contains(Map.Type.WALL)){
       listOfValidMoves.add(new Location(myLoc.x,myLoc.y-1));
     }
-
-    return listOfValidMoves;
   }
 
   public boolean move() {
@@ -53,10 +50,22 @@ public class Ghost {
   }
 
   public boolean is_pacman_in_range() {
-    return false;
+    		//check above, to the right, below, and to the left of myLoc for a ghost
+		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.PACMAN)
+		|| myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.PACMAN)
+		|| myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.PACMAN)
+		|| myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.PACMAN)) {
+			return true;
+		}
+
+		return false;
   }
 
   public boolean attack() {
+    if (is_pacman_in_range()) {
+      return myMap.attack(myName);
+    }
+
     return false;
   }
 }
