@@ -1,7 +1,6 @@
 package pacman;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.function.BiConsumer;
 
 public class Map {
 
@@ -53,7 +52,7 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
-    // update locations, components, and field
+    // update geocations, components, and field
     // use the setLocation method for the component to move it to the new location
 
     //Case 1, going to a valid spot (empty)
@@ -98,9 +97,17 @@ public class Map {
   }
 
   public HashSet<Type> getLoc(Location loc) {
-    // wallSet and emptySet will help you write this method
-    return null;
-  }
+    HashSet<Type> types = field.get(loc);
+    if (types == null) {
+        return emptySet;
+    } else if (types.contains(Type.WALL)) {
+        return wallSet;
+    } else {
+        return types;
+    }
+}
+
+
 
   public boolean attack(String Name) {
     // update gameOver
