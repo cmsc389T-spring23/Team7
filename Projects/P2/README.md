@@ -6,6 +6,7 @@ The purpose of this project is to create a fully functioning pacman game, includ
 ## Authors
 
 - [@ritviky](https://github.com/RitvikY)
+- [@rishkar](https://github.com/rishkar)
 
 
 
@@ -64,9 +65,7 @@ This class will initialize a new ghost object and call the ***ghost.move()*** fu
 
 This method will add a ghost and pacman object to the gameboard. It will return true if the method can correctly identify that a ghost or pacman object is present on the coordinates they were initialized on.
 ## Run Locally
-First, make sure gradle is installed locally on your computer. 
-
-On the terminal, run the following command to start the game 
+First, make sure gradle is installed locally on your computer. Then, starting from the root of the project, run the following command to start the game 
 
 ```bash
   gradle build
