@@ -10,10 +10,6 @@ public class TestPacManValidMoves extends TestCase {
 
   //requires getLoc to be defined
   public void testPacManValidMoves() throws FileNotFoundException {
-    //check that each element is in
-
-    //Could also create a NoFrame or MainFrame object, use the getMap()
-
     PacMan pacman = new PacMan("pacman", new Location (9,11), new Map(30));
     ArrayList<Location> answer= pacman.get_valid_moves();
 
