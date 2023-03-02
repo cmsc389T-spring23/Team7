@@ -2,6 +2,8 @@ package pacman;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import javax.swing.JComponent;
+
 public class Map {
 
   public enum Type {
@@ -91,6 +93,7 @@ public class Map {
     }else{
       return false;
     }
+   return false;
   }
 
   public HashSet<Type> getLoc(Location loc) {
