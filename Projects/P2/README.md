@@ -16,6 +16,16 @@ Insert gif or link to demo
 
 ## API
 
+#### @rishkar functions :
+- pacman - consume()
+- ghost - attack()
+- map - eatCookie()
+
+#### @ritviky functions :
+- pacman - move()
+- ghost - move()
+- map - getLoc()
+
 #### @benjamin2jean functions :
 - pacman - get_valid_moves()
 - ghost - get_valid_moves()
