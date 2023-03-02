@@ -12,6 +12,7 @@ public class Ghost {
     this.myName = name;
     this.myMap = map;
   }
+
   //Checks the 4 cardinal directions of PacMan's current locations.
   //A valid move is anything as long as we don't encounter a wall.
   public ArrayList<Location> get_valid_moves() {
