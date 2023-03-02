@@ -14,7 +14,6 @@ public class PacMan {
     this.myName = name;
     this.myMap = map;
   }
-
   //Checks the 4 cardinal directions of PacMan's current locations.
   //A valid move is anything as long as we don't encounter a wall.
   public ArrayList<Location> get_valid_moves() {
@@ -51,7 +50,7 @@ public class PacMan {
     } else {
       myLoc = new Location(moves.get(0).x, moves.get(0).y);
       return myMap.move(myName, myLoc, Map.Type.PACMAN);
-    }
+
     return true;
   }
 
