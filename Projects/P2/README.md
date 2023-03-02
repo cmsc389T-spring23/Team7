@@ -4,8 +4,10 @@
 The purpose of this project is to create a fully functioning pacman game, including ghosts 
 
 ## Authors
-
+- [@ritviky](https://github.com/RitvikY)
+- [@rishkar](https://github.com/rishkar)
 - [@benjamin2jean](https://github.com/benjamin2jean)
+
 
 ## Demo
 
@@ -62,9 +64,7 @@ This class will initialize a new Ghost object with a location and begin to test 
  This class tries to test the move() of the Map class.
  
 ## Run Locally
-First, make sure gradle is installed locally on your computer. 
-
-On the terminal, run the following command to start the game 
+First, make sure gradle is installed locally on your computer. Then, starting from the root of the project, run the following command to start the game 
 
 ```bash
   gradle build
