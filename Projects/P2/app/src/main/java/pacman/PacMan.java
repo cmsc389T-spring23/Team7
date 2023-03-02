@@ -26,6 +26,7 @@ public class PacMan {
   public boolean is_ghost_in_range() {
     Map.Type mynum = Map.Type.EMPTY;
 
+
     
 		//check above, to the right, below, and to the left of myLoc for a ghost
 		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)) != null && myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.GHOST)
