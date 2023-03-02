@@ -64,6 +64,7 @@ public class Map {
   }
 
   public boolean attack(String Name) {
+    // comment
     gameOver= true;
     return false;
   }
