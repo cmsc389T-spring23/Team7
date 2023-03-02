@@ -41,7 +41,14 @@ public class Ghost {
   }
 
   public boolean move() {
-    return false;
+    ArrayList<Location> moves = this.get_valid_moves();
+    if (moves.size() == 0) {
+      return false;
+    } else {
+      myLoc = new Location(moves.get(0).x, moves.get(0).y);
+      return myMap.move(myName, myLoc, Map.Type.GHOST);
+    }
+    return true;
   }
 
   public boolean is_pacman_in_range() {
