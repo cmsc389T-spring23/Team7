@@ -7,10 +7,6 @@ The purpose of this project is to create a fully functioning pacman game, includ
 
 - [@benjamin2jean](https://github.com/benjamin2jean)
 
-
-
-
-
 ## Demo
 
 Insert gif or link to demo
@@ -27,27 +23,27 @@ Insert gif or link to demo
 ```http
   get_valid_moves()
 ```
-This method provides a list of possible moves that PacMan can take.
+This method provides a list of possible moves that PacMan can take in the 4 cardinal directions from current location of PacMan.
 
 ## Pacman  Test class  
 ```http
   TestPacManValidMoves.java
 ```
 
-This class will initialize a new pacman object and test that the only valid moves are not walls. 
+This class will initialize a new Pacman object with a location and begin to test the valid possible moves. A valid move is any 1 space from the current location in the 4 cardinal directions that would not lead to a wall. 
 
 
 ## Ghost class 
 ```http
   get_valid_moves()
 ```
-This method provides a list of possible moves that a Ghost can take.
+This method provides a list of possible moves that a Ghost can take in the 4 cardinal directions from current location of Ghost.
 ## Ghost  Test class  
 ```http
   TestGhostValidMoves.java
 ```
 
-This class will initialize a new ghost object and test that the only valid moves are not walls.
+This class will initialize a new Ghost object with a location and begin to test the valid possible moves. A valid move is any 1 space from the current location in the 4 cardinal directions that would not lead to a wall. 
 
 
 
@@ -64,6 +60,7 @@ This class will initialize a new ghost object and test that the only valid moves
 ```
 
  This class tries to test the move() of the Map class.
+ 
 ## Run Locally
 First, make sure gradle is installed locally on your computer. 
 
