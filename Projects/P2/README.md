@@ -4,12 +4,9 @@
 The purpose of this project is to create a fully functioning pacman game, including ghosts 
 
 ## Authors
-
 - [@ritviky](https://github.com/RitvikY)
 - [@rishkar](https://github.com/rishkar)
-
-
-
+- [@benjamin2jean](https://github.com/benjamin2jean)
 
 
 ## Demo
@@ -19,16 +16,16 @@ Insert gif or link to demo
 
 ## API
 
-#### @ritviky functions :
-- pacman - move()
-- ghost - move()
-- map - getLoc()
+#### @benjamin2jean functions :
+- pacman - get_valid_moves()
+- ghost - get_valid_moves()
+- map - move()
 
 ## Pacman class 
 ```http
-  move()
+  get_valid_moves()
 ```
-This method will find the possible moves that the Pacman object can take using the **get_valid_moves** method. It will then choose one of these moves and adjust pacmans location accordingly
+This method provides a list of possible moves that PacMan can take in the 4 cardinal directions from current location of PacMan.
 
 
 
@@ -39,10 +36,10 @@ This method handles the pacman-side of things when pacman is eating a cookie. It
 
 ## Pacman  Test class  
 ```http
-  TestPacmanMove.java
+  TestPacManValidMoves.java
 ```
 
-This class will initialize a new pacman object and return true if pacman is able to move correctly in the game map
+This class will initialize a new Pacman object with a location and begin to test the valid possible moves. A valid move is any 1 space from the current location in the 4 cardinal directions that would not lead to a wall. 
 
 ```java
 TestPacManConsume.java
@@ -52,7 +49,7 @@ Creates a NoFrame and initializes a cookie and pacman in the same location, then
 
 ## Ghost class 
 ```http
-  move()
+  get_valid_moves()
 ```
 This method will find the possible moves that the Ghost object can take using the **get_valid_moves** method. It will then choose one of these moves and adjust ghosts location accordingly
 ```java
@@ -62,10 +59,11 @@ This method will prompt the ghost to attack a pacman within the attack range. It
 
 ## Ghost  Test class  
 ```http
-  TestGhostMove.java
+  TestGhostValidMoves.java
 ```
 
-This class will initialize a new ghost object and call the ***ghost.move()*** funtion. It will return true if a ghost is present on the correct location after ***ghost.move()*** is called
+This class will initialize a new Ghost object with a location and begin to test the valid possible moves. A valid move is any 1 space from the current location in the 4 cardinal directions that would not lead to a wall. 
+
 
 ```java
 TestGhostAttack.java
@@ -76,9 +74,9 @@ Creates a NoFrame with a ghost and a pacman right next to it and ensures that th
 
 ## Map class 
 ```http
-  getLoc()
+  move()
 ```
- For the given location argument loc, returns the set of types currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
+ This method tries to move the Objects on the board.
 
  ```java
 Map.eatCookie()
@@ -87,7 +85,7 @@ This method handles the Map-side of things when pacman is eating a cookie. It wi
 
 ## Map  Test class  
 ```http
-  TestMapGetLoc.java
+  TestMapMove.java
 ```
 
 This method will add a ghost and pacman object to the gameboard. It will return true if the method can correctly identify that a ghost or pacman object is present on the coordinates they were initialized on.
@@ -104,5 +102,3 @@ First, make sure gradle is installed locally on your computer. Then, starting fr
   gradle build
   gradle run
 ```
-
-
