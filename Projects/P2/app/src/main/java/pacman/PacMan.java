@@ -1,7 +1,11 @@
 package pacman;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Locale;
+
 import javax.swing.JComponent;
+
+import com.sun.jdi.Location;
 
 public class PacMan {
   String myName;
@@ -16,11 +20,18 @@ public class PacMan {
   }
 
   public ArrayList<Location> get_valid_moves() {
-    return null;
+   return null;
   }
 
   public boolean move() {
-    return false;
+    ArrayList<Location> moves = this.get_valid_moves();
+    if (moves.size() == 0) {
+      return false;
+    } else {
+      loc = new Location(moves.get(0).x, moves.get(0).y);
+      return myMap.move(myName, loc, Map.Type.PACMAN);
+    }
+    return true;
   }
 
   public boolean is_ghost_in_range() {
