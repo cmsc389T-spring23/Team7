@@ -1,11 +1,7 @@
 package pacman;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Locale;
-
 import javax.swing.JComponent;
-
-import com.sun.jdi.Location;
 
 public class PacMan {
   String myName;
