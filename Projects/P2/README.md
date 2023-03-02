@@ -33,6 +33,10 @@ Insert gif or link to demo
 
 ## Pacman class 
 ```http
+  move()
+```
+This method will find the possible moves that the Pacman object can take using the **get_valid_moves** method. It will then choose one of these moves and adjust pacmans location accordingly
+```http
   get_valid_moves()
 ```
 This method provides a list of possible moves that PacMan can take in the 4 cardinal directions from current location of PacMan.
@@ -45,6 +49,11 @@ Pacman.consume()
 This method handles the pacman-side of things when pacman is eating a cookie. It first makes sure there's actually a cookie to be consumed, then eats it. This heavily relies on `Map.eatCookie()` to be working properly. It'll return the cookie component if the consume operation was successful.
 
 ## Pacman  Test class  
+```http
+  TestPacmanMove.java
+```
+
+This class will initialize a new pacman object and return true if pacman is able to move correctly in the game map
 ```http
   TestPacManValidMoves.java
 ```
@@ -59,6 +68,10 @@ Creates a NoFrame and initializes a cookie and pacman in the same location, then
 
 ## Ghost class 
 ```http
+  move()
+```
+This method will find the possible moves that the Ghost object can take using the **get_valid_moves** method. It will then choose one of these moves and adjust ghosts location accordingly
+```http
   get_valid_moves()
 ```
 This method will find the possible moves that the Ghost object can take using the **get_valid_moves** method. It will then choose one of these moves and adjust ghosts location accordingly
@@ -68,6 +81,11 @@ Ghost.attack()
 This method will prompt the ghost to attack a pacman within the attack range. It heavily relies on the attack function in the Map class and will return a boolean depending on the success of the attack.
 
 ## Ghost  Test class  
+```http
+  TestGhostMove.java
+```
+
+This class will initialize a new ghost object and call the ***ghost.move()*** funtion. It will return true if a ghost is present on the correct location after ***ghost.move()*** is called
 ```http
   TestGhostValidMoves.java
 ```
@@ -84,6 +102,10 @@ Creates a NoFrame with a ghost and a pacman right next to it and ensures that th
 
 ## Map class 
 ```http
+  getLoc()
+```
+ For the given location argument loc, returns the set of types currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
+```http
   move()
 ```
  This method tries to move the Objects on the board.
@@ -94,6 +116,11 @@ Map.eatCookie()
 This method handles the Map-side of things when pacman is eating a cookie. It will check first if pacman actually ate the cookie, then update the display accordingly by removing the cookie. It also updates an internal counter for the number of cookies eaten.
 
 ## Map  Test class  
+```http
+  TestMapGetLoc.java
+```
+
+This method will add a ghost and pacman object to the gameboard. It will return true if the method can correctly identify that a ghost or pacman object is present on the coordinates they were initialized on.
 ```http
   TestMapMove.java
 ```
