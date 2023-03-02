@@ -18,6 +18,7 @@ public class PacMan {
   //Checks the 4 cardinal directions of PacMan's current locations.
   //A valid move is anything as long as we don't encounter a wall.
   public ArrayList<Location> get_valid_moves() {
+
     ArrayList<Location> listOfValidMoves= new ArrayList<Location>();
     
     //Checking East of current position
@@ -44,7 +45,14 @@ public class PacMan {
   }
 
   public boolean move() {
-    return false;
+    ArrayList<Location> moves = get_valid_moves();
+    if (moves.size() == 0) {
+      return false;
+    } else {
+      myLoc = new Location(moves.get(0).x, moves.get(0).y);
+      return myMap.move(myName, myLoc, Map.Type.PACMAN);
+    }
+  
   }
 
   public boolean is_ghost_in_range() {
