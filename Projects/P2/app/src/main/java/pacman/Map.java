@@ -112,7 +112,8 @@ public class Map {
 
 
   public boolean attack(String Name) {
-    // update gameOver
+    // comment
+    gameOver= true;
     return false;
   }
 
