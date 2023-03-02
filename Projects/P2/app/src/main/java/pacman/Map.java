@@ -2,6 +2,8 @@ package pacman;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import javax.swing.JComponent;
+
 public class Map {
 
   public enum Type {
@@ -54,46 +56,7 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update geocations, components, and field
     // use the setLocation method for the component to move it to the new location
-
-    //Case 1, going to a valid spot (empty)
-    if((getLoc(loc)).contains(Type.EMPTY)){
-      //finding and updating old location first
-      for(Entry<Location>entry: field.keySet()){
-        if(field.get(entry)== Type.PACMAN){
-          field.put(entry, Type.EMPTY);
-        }
-      }
-
-      //updating PacMan's location and field
-      locations.put(name, loc);
-      field.put(loc, Type.PACMAN);
-
-      return true;
-
-      //Case 2, going to a valid spot (ghost)
-    }else if((getLoc(loc)).contains(Type.GHOST)){
-      locations.put(name, loc);
-      
-      //checking if the ghost's attack failed, if so
-      //PacMan won and we update PacMan position
-      if(attack(name)==false){
-        field.put(loc, Type.PACMAN);
-      }
-
-      return true;
-
-      //Case 3, going to a valid spot (cookie)
-    }else if((getLoc(loc)).contains(Type.COOKIE)){
-      locations.put(name, loc);
-      components.put(name,eatCookie(name));
-      field.put(loc, Type.PACMAN);
-
-      return true;
-
-      //Case 4, going to an invalid spot(Wall)
-    }else{
-      return false;
-    }
+    return false;
   }
 
   public HashSet<Type> getLoc(Location loc) {
