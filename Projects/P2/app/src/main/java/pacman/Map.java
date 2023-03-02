@@ -52,9 +52,6 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
-    // update geocations, components, and field
-    // use the setLocation method for the component to move it to the new location
-
     //Case 1, going to a valid spot (empty)
     if((getLoc(loc)).contains(Type.EMPTY)){
       //finding and updating old location first
