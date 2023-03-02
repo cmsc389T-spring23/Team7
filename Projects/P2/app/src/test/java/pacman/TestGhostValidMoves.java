@@ -12,6 +12,7 @@ public class TestGhostValidMoves extends TestCase {
     ArrayList<Location> answer=ghost.get_valid_moves();
 
     assertTrue(answer.contains(new Location(9,12)));
+    assertFalse(answer.contains(new Location(2,2)));
     assertTrue(answer.contains(new Location(10,11)));
   }
 }
