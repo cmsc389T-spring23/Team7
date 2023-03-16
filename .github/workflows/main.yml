@@ -1,0 +1,13 @@
+name: ACTIONS
+
+on: push
+
+jobs:
+  
+  build:  
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile Java Classes
+        run: ./gradlew build
