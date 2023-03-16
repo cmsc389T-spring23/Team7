@@ -11,3 +11,26 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile Java Classes
         run: gradle build
+
+    test-pacman-move:
+      runs-on: ubuntu-latest
+      container: openjdk:13
+      steps:
+       - uses: actions/checkout@v2
+       - name: Test pacman-move functionality
+         run: gradle test --tests TestPacManMove
+    test-ghost-move:
+      runs-on: ubuntu-latest
+      container: openjdk:13
+      steps:
+       - uses: actions/checkout@v2
+       - name: Test pacman-ghost functionality
+         run: gradle test --tests TestGhostMove
+    test-map-getloc:
+      runs-on: ubuntu-latest
+      container: openjdk:13
+      steps:
+       - uses: actions/checkout@v2
+       - name: Test map-getLoc functionality
+         run: gradle test --tests TestMapGetLoc
+
