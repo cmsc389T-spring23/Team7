@@ -11,3 +11,27 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile Java Classes
         run: gradle build
+
+  test-pacman-consume:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test pacman-consume functionality
+        run: gradle test --tests TestPacManConsume
+
+  test-ghost-attack:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test pacman-consume functionality
+        run: gradle test --tests TestGhostAttack
+
+  test-pacman-consume:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test pacman-consume functionality
+        run: gradle test --tests TestMapEatCookie
