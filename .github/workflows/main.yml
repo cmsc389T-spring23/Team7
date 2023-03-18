@@ -11,7 +11,66 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile Java Classes
         run: gradle build
+ test-pacman-consume:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test pacman-consume functionality
+        run: gradle test --tests TestPacManConsume
 
+  test-ghost-attack:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test pacman-consume functionality
+        run: gradle test --tests TestGhostAttack
+
+  test-pacman-consume:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test pacman-consume functionality
+        run: gradle test --tests TestMapEatCookie
+
+  test-pacman-move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+      - name: Test Pacman Move
+        run: |
+          cd Projects/P2
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove
+  test-ghost-move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+      - name: Test Ghost Move
+        run: |
+          cd Projects/P2
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
+  test-map-getloc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+      - name: Test Map getLoc
+        run: |
+          cd Projects/P2
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapGetLo
     test-pacman-range:
       runs-on: ubuntu-latest
       steps:
