@@ -107,4 +107,28 @@ jobs:
             cd Projects/P2
             javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
             java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
+ 
+ test-ghost-get_valid_moves:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test ghost-get_valid_moves functionality
+        run: gradle test --tests TestGhostValidMoves
+
+  test-pacman-get_valid_moves:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test pacman-get_valid_moves functionality
+        run: gradle test --tests TestPacManValidMoves
+
+  test-map-move:
+    runs-on: ubuntu-latest
+    container: openjdk:13
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test map-move functionality
+        run: gradle test --tests TestMapMove
 
