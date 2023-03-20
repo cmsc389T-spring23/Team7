@@ -11,7 +11,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile Java Classes
         run: gradle build
- test-pacman-consume:
+        
+  test-pacman-consume:
     runs-on: ubuntu-latest
     container: openjdk:13
     steps:
@@ -47,6 +48,7 @@ jobs:
           cd Projects/P2
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManMove
+  
   test-ghost-move:
     runs-on: ubuntu-latest
     steps:
@@ -59,6 +61,7 @@ jobs:
           cd Projects/P2
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
+  
   test-map-getloc:
     runs-on: ubuntu-latest
     steps:
@@ -71,44 +74,47 @@ jobs:
           cd Projects/P2
           javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
           java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapGetLo
-    test-pacman-range:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-          with:
-            distribution: 'zulu'
-            java-version: '8'
-        - name: Test Pacman In Range
-          run: |
-            cd Projects/P2
-            javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-            java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
-    test-ghost-range:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-          with:
-            distribution: 'zulu'
-            java-version: '8'
-        - name: Test Ghost In Range
-          run: |
-            cd Projects/P2
-            javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-            java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostInRange
-    test-map-attack:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-          with:
-            distribution: 'zulu'
-            java-version: '8'
-        - name: Test Map attack
-          run: |
-            cd Projects/P2
-            javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
-            java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
- 
- test-ghost-get_valid_moves:
+  
+  test-pacman-range:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+      - name: Test Pacman In Range
+        run: |
+          cd Projects/P2
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
+  
+  test-ghost-range:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+      - name: Test Ghost In Range
+        run: |
+          cd Projects/P2
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostInRange
+  
+  test-map-attack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+      - name: Test Map attack
+        run: |
+          cd Projects/P2
+          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapAttack
+
+  test-ghost-get_valid_moves:
     runs-on: ubuntu-latest
     container: openjdk:13
     steps:
