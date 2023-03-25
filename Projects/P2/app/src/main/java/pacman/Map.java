@@ -112,8 +112,25 @@ public class Map {
 
 
   public boolean attack(String Name) {
-    // comment
-    gameOver= true;
+    Location ghost = locations.get(Name);
+    if (ghost == null) {
+      return false; //ghost dont exist
+    } else {
+      //ghost exists
+      Location north = new Location(ghost.x, ghost.y -1);
+      Location south = new Location(ghost.x, ghost.y +1);
+      Location west = new Location(ghost.x - 1, ghost.y);
+      Location east = new Location(ghost.x + 1, ghost.y);
+      HashSet<Type> nTypes = this.getLoc(north);
+      HashSet<Type> sTypes = this.getLoc(south);
+      HashSet<Type> wTypes = this.getLoc(west);
+      HashSet<Type> eTypes = this.getLoc(east);
+      if (nTypes.contains(Map.Type.PACMAN) || sTypes.contains(Map.Type.PACMAN) || wTypes.contains(Map.Type.PACMAN)|| eTypes.contains(Map.Type.PACMAN)) {
+        //pacman exists
+        this.gameOver = true;
+        return false;
+      }
+    }
     return false;
   }
 
