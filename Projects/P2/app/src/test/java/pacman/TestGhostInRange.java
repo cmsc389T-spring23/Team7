@@ -6,24 +6,17 @@ import java.awt.Color;
 public class TestGhostInRange extends TestCase {
 
   public void testGhostInRange() throws FileNotFoundException {
-    Map gameMap = new Map();
+    // PacMan in range
+    NoFrame frame = new NoFrame();
 
-    Location pacManLoc = new Location(9, 12);
-    Location ghostLoc = new Location(9, 11);
-    PacMan pacMan = new PacMan(pacManLoc, gameMap);
-    Ghost ghost = new Ghost(ghostLoc, gameMap, "clyde");
+    Ghost ghost = frame.addGhost(new Location(1,1), "Billy", Color.BLUE);
+    PacMan pacman = frame.addPacMan(new Location(2,1));
+    assertTrue(ghost.is_pacman_in_range());
 
-    gameMap.move("pacman", pacManLoc, Map.Type.PACMAN);
-    gameMap.move("clyde", ghostLoc, Map.Type.GHOST);
-
-    boolean result = pacMan.is_ghost_in_range();
-    assertTrue(result);
-
-    Location newPacManLoc = new Location(10, 12);
-    gameMap.move("pacman", newPacManLoc, Map.Type.PACMAN);
-    pacMan.myLoc = newPacManLoc;
-
-    result = pacMan.is_ghost_in_range();
-    assertFalse(result);
+    // PacMan not in range
+    frame = new NoFrame();
+    ghost = frame.addGhost(new Location(5,1), "Billy", Color.BLUE);
+    pacman = frame.addPacMan(new Location(2,1));
+    assertFalse(ghost.is_pacman_in_range());
   }
 }
