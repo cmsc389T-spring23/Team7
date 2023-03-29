@@ -50,8 +50,7 @@ public class PacMan {
     } else {
       myLoc = new Location(moves.get(0).x, moves.get(0).y);
       return myMap.move(myName, myLoc, Map.Type.PACMAN);
-
-    return true;
+  }
   }
 
   public boolean is_ghost_in_range() {
