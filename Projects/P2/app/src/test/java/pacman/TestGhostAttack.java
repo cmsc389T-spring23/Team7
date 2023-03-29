@@ -13,7 +13,7 @@ public class TestGhostAttack extends TestCase {
     Ghost blinky = frame.addGhost(new Location(1, 1), "blinky", Color.red); 
     PacMan pacman = frame.addPacMan(new Location(1, 2));
 
-    assert(blinky.attack());
+    assertTrue(blinky.attack());
 
     // Inky is nowhere near pacman so this would not work.
     Ghost inky = frame.addGhost(new Location(5, 5), "Inky", Color.CYAN); 

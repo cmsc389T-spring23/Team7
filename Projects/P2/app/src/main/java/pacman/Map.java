@@ -54,45 +54,54 @@ public class Map {
 
   public boolean move(String name, Location loc, Type type) {
     Location previousSpot= locations.get(name);
-    HashSet<Type> PacManSet= new HashSet<>();
-    HashSet<Type> GhostSet= new HashSet<>();
-
-    PacManSet.add(Type.PACMAN);
-    GhostSet.add(Type.GHOST);
+    HashSet<Type> temp;
 
     if(type==Type.PACMAN){
       
       //Case 1, going to a valid spot (empty)
       if((getLoc(loc)).contains(Type.EMPTY)){
         //erasing previous location
-        field.put(previousSpot, emptySet);
+        temp=getLoc(previousSpot);
+        temp.remove(Type.PACMAN);
+        field.put(previousSpot, temp);
 
         //updating PacMan's location and field
+        temp=getLoc(loc);
+        temp.add(Type.PACMAN);
         locations.put(name, loc);
-        field.put(loc, PacManSet);
+        field.put(loc, temp);
 
         return true;
 
       //Case 2, going to a valid spot (ghost)
       }else if((getLoc(loc)).contains(Type.GHOST)){
         //erasing previous location
-        field.put(previousSpot, emptySet);
+        temp=getLoc(previousSpot);
+        temp.remove(Type.PACMAN);
+        field.put(previousSpot, temp);
 
         //updating PacMan's location and field
+        temp=getLoc(loc);
+        temp.add(Type.PACMAN);
         locations.put(name, loc);
-        field.put(loc, PacManSet);
+        field.put(loc, temp);
 
         return true;
 
         //Case 3, going to a valid spot (cookie)
       }else if((getLoc(loc)).contains(Type.COOKIE)){
         //erasing previous location
-        field.put(previousSpot, emptySet);
+        temp=getLoc(previousSpot);
+        temp.remove(Type.PACMAN);
+        field.put(previousSpot, temp);
 
         //updating PacMan's location and field
+        temp=getLoc(loc);
+        temp.add(Type.PACMAN);
         locations.put(name, loc);
+        field.put(loc, temp);
+
         components.put(name,eatCookie(name));
-        field.put(loc, PacManSet);
 
         return true;
 
@@ -106,11 +115,15 @@ public class Map {
       //Case 1, going to a valid spot (empty)
       if((getLoc(loc)).contains(Type.EMPTY)){
         //erasing previous location
-        field.put(previousSpot, emptySet);
+        temp=getLoc(previousSpot);
+        temp.remove(Type.GHOST);
+        field.put(previousSpot, temp);
 
         //updating Ghost's location and field
+        temp=getLoc(loc);
+        temp.add(Type.GHOST);
         locations.put(name, loc);
-        field.put(loc, GhostSet);
+        field.put(loc, temp);
 
         return true;
 
@@ -119,22 +132,30 @@ public class Map {
         //checking if the ghost's attack was successful
         if(attack(name)==true){
           //erasing previous location
-          field.put(previousSpot, emptySet);
+          temp=getLoc(previousSpot);
+          temp.remove(Type.GHOST);
+          field.put(previousSpot, temp);
   
           //updating Ghost's location and field
+          temp=getLoc(loc);
+          temp.add(Type.GHOST);
           locations.put(name, loc);
-          field.put(loc, GhostSet);
+          field.put(loc, temp);
         }
         return true;
 
         //Case 3, going to a valid spot (cookie)
       }else if((getLoc(loc)).contains(Type.COOKIE)){
         //erasing previous location
-        field.put(previousSpot, emptySet);
+        temp=getLoc(previousSpot);
+        temp.remove(Type.GHOST);
+        field.put(previousSpot, temp);
 
         //updating Ghost's location and field
+        temp=getLoc(loc);
+        temp.add(Type.GHOST);
         locations.put(name, loc);
-        field.put(loc, GhostSet);
+        field.put(loc, temp);
 
         return true;
 
@@ -175,7 +196,7 @@ public class Map {
       if (nTypes.contains(Map.Type.PACMAN) || sTypes.contains(Map.Type.PACMAN) || wTypes.contains(Map.Type.PACMAN)|| eTypes.contains(Map.Type.PACMAN)) {
         //pacman exists
         this.gameOver = true;
-        return false;
+        return true;
       }
     }
     return false;

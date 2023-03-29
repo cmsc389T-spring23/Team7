@@ -2,7 +2,6 @@ package pacman;
 import java.io.*;
 import junit.framework.*;
 import java.awt.Color;
-import NoFrame;
 
 public class TestPacManConsume extends TestCase {
 
