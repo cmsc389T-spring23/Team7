@@ -71,7 +71,7 @@ public class Map {
         locations.put(name, loc);
         field.put(loc, temp);
 
-        return true;
+        return false;
 
       //Case 2, going to a valid spot (ghost)
       }else if((getLoc(loc)).contains(Type.GHOST)){
@@ -85,8 +85,9 @@ public class Map {
         temp.add(Type.PACMAN);
         locations.put(name, loc);
         field.put(loc, temp);
+        
+        return false;
 
-        return true;
 
         //Case 3, going to a valid spot (cookie)
       }else if((getLoc(loc)).contains(Type.COOKIE)){
@@ -103,11 +104,11 @@ public class Map {
 
         components.put(name,eatCookie(name));
 
-        return true;
+        return false;
 
         //going to an invalid spot(Wall)
       }else{
-        return false;
+        return true;
       }
 
     }else{
@@ -125,7 +126,7 @@ public class Map {
         locations.put(name, loc);
         field.put(loc, temp);
 
-        return true;
+        return false;
 
         //Case 2, going to a valid spot (pacman)
       }else if((getLoc(loc)).contains(Type.PACMAN)){
@@ -142,7 +143,7 @@ public class Map {
           locations.put(name, loc);
           field.put(loc, temp);
         }
-        return true;
+        return false;
 
         //Case 3, going to a valid spot (cookie)
       }else if((getLoc(loc)).contains(Type.COOKIE)){
@@ -157,11 +158,12 @@ public class Map {
         locations.put(name, loc);
         field.put(loc, temp);
 
-        return true;
+
+        return false;
 
         //Case 4, going to an invalid spot(Wall)
       }else{
-        return false;
+        return true;
       }
     }
   }

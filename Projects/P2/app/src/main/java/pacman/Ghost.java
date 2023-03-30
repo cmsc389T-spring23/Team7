@@ -20,22 +20,22 @@ public class Ghost {
     
     //Checking East of current position
     if(!(myMap.getLoc(new Location (myLoc.x+1,myLoc.y))).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(myLoc.x+1,myLoc.y));
+      listOfValidMoves.add(new Location(myLoc.x+2,myLoc.y));
     }
 
     //Checking West of current position
     if(!(myMap.getLoc(new Location (myLoc.x-1,myLoc.y))).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(myLoc.x-1,myLoc.y));
+      listOfValidMoves.add(new Location(myLoc.x-2,myLoc.y));
     }
     
     //Checking North of current position
     if(!(myMap.getLoc(new Location (myLoc.x,myLoc.y+1))).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(myLoc.x,myLoc.y+1));
+      listOfValidMoves.add(new Location(myLoc.x,myLoc.y+2));
     }
     
     //Checking South of current position
     if(!(myMap.getLoc(new Location (myLoc.x,myLoc.y-1))).contains(Map.Type.WALL)){
-      listOfValidMoves.add(new Location(myLoc.x,myLoc.y-1));
+      listOfValidMoves.add(new Location(myLoc.x,myLoc.y-2));
     }
     return listOfValidMoves;
   }
