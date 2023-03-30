@@ -85,9 +85,8 @@ public class Map {
         temp.add(Type.PACMAN);
         locations.put(name, loc);
         field.put(loc, temp);
-        
-        return false;
 
+        return false;
 
         //Case 3, going to a valid spot (cookie)
       }else if((getLoc(loc)).contains(Type.COOKIE)){
@@ -157,7 +156,6 @@ public class Map {
         temp.add(Type.GHOST);
         locations.put(name, loc);
         field.put(loc, temp);
-
 
         return false;
 
