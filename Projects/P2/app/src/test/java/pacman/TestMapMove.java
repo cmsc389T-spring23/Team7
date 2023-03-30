@@ -8,7 +8,8 @@ public class TestMapMove extends TestCase {
   public void testMapMove() throws FileNotFoundException {
   NoFrame frame= new NoFrame();
   PacMan pacman = frame.addPacMan(new Location(3, 5));
-
-  assertTrue(map.move("pacman", new Location (3,6), Map.Type.PACMAN));
+  Map myMap=frame.getMap();
+  
+  assertTrue(myMap.move("pacman", new Location (3,6), Map.Type.PACMAN));
   }
 }
