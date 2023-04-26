@@ -31,6 +31,11 @@ Insert gif or link to demo
 - ghost - get_valid_moves()
 - map - move()
 
+#### @abhinavyedla functions :
+- pacman - is_ghost_in_range()
+- ghost - is_pacman_in_range()
+- map - attack()
+
 ## Pacman class 
 ```http
   move()
