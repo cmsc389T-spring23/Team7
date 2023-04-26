@@ -7,6 +7,7 @@ The purpose of this project is to create a fully functioning pacman game, includ
 - [@ritviky](https://github.com/RitvikY)
 - [@rishkar](https://github.com/rishkar)
 - [@benjamin2jean](https://github.com/benjamin2jean)
+- [@abhinavyedla02](https://github.com/abhinavyedla02)
 
 
 ## Demo
@@ -31,7 +32,7 @@ Insert gif or link to demo
 - ghost - get_valid_moves()
 - map - move()
 
-#### @abhinavyedla functions :
+#### @abhinavyedla02 functions :
 - pacman - is_ghost_in_range()
 - ghost - is_pacman_in_range()
 - map - attack()
